@@ -1,1 +1,27 @@
+ *{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ body{
+     align-items: center;
+     background: burlywood;
+     margin-right: 10rem;
+     max-width: 90rem;
+     max-width: 100;
+ }
  
+ 
+ .place-list{
+     object-fit: contain;
+     display: flex;
+     gap: 2rem;
+ }
+
+ .places-list__photo{
+     background-size: cover;
+     height: 15rem;
+     width: 30rem;
+ }
+

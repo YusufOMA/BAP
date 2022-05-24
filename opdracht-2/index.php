@@ -2,7 +2,7 @@
 require 'functions.php';
 $connection = dbConnect();
 
-$result = $connection->query('SELECT * FROM `bedrijven/portfolio`');
+$result = $connection->query('SELECT * FROM `portfolio`');
 
 ?>
 
@@ -12,7 +12,8 @@ $result = $connection->query('SELECT * FROM `bedrijven/portfolio`');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Bundels</title>
 </head>
 <body>
     <h1>Projecten</h1>
@@ -22,10 +23,8 @@ $result = $connection->query('SELECT * FROM `bedrijven/portfolio`');
         <h2><?php echo $row ['titel']; ?></h2>
         <figure class="places-list__photo" style="background-image: url(img/<?php echo $row ['foto'] ?>)"></figure>
         <header>
-            <h3>Website</h3>
-            <em>Musea</em>
-        </header>
-        <p>Een zelfgemaakte website over Japan</p>
+        <h2><?php echo $row ['prijs']; ?></h2>
+        <h2><?php echo $row ['tekst']; ?></h2>
     </article>
     <?php endforeach; ?>
     </section>

@@ -2,7 +2,7 @@
 
 $config = [
     'server' => 'localhost',
-    'database' => 'makeitrain',
+    'database' => 'makeitrain1',
     'username' => 'root',
     'password' => '',
     'port' => 3306
