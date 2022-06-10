@@ -20,6 +20,7 @@ $statement = $connection->prepare('SELECT * FROM `portfolio` WHERE id=?');
 $params = [$id];
 $statement->execute($params);
 $projects = $statement->fetch(PDO::FETCH_ASSOC);
+$pakketen = $connection->query('SELECT * FROM `portfolio`');
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +34,7 @@ $projects = $statement->fetch(PDO::FETCH_ASSOC);
 </head>
 <body>
     <div class="container"></div>
-        <h1>Projecten</h1>
+        <a href="index.php"><li><h1>Projecten</h1></li></a>
         <section>
             <article class="place-info">
                 <header>
@@ -46,16 +47,18 @@ $projects = $statement->fetch(PDO::FETCH_ASSOC);
                 <p>
                 <?php echo $projects['tekst']?>
                 </p>
+                <a href="contact.php" class="link-button">Neem contact op!</a>
                 <hr>
                 <a href="index.php">Terug naar het overzicht</a>
             </article>
             <aside class="places-sidebar">
                 <h3>Andere Sites</h3>
                 <ul>
-                    <li>Basic Pakket</li>
-                    <li>Normal Pakket</li>
-                    <li>Mater Pakket</li>
+                <?php foreach($pakketen as $row): ?>
+                    <li><a href="project.php?id=<?php echo $row ['id'];?>"><?php echo $row ['titel'];?></a></li> 
+                    <?php endforeach; ?>
                 </ul>
+                
             </aside>
         </section>
         
